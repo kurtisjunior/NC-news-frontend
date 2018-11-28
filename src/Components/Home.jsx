@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import * as api from '../api'
 
+import '../css/homeArticles.css'
+
+
+import {
+    Card, Button, CardHeader, CardFooter, CardBody,
+    CardTitle, CardText, Container
+} from 'reactstrap';
+
 /*  
 Home page to hold articles in state
 Display: Nav bar, Side bar, Annie
@@ -45,9 +53,25 @@ class Home extends Component {
     ]
     render() {
         return (
-            <div>
-                <h1>articles</h1>
-            </div>
+            < div >
+                {
+                    this.state.map(article => {
+                        return <li className='list'>
+                            <Container className='col-md-8 float-left'>
+                                <Card>
+                                    <CardHeader>{article.title}</CardHeader>
+                                    <CardBody>
+                                        <CardTitle>Special Title Treatment</CardTitle>
+                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                        <Button>Go somewhere</Button>
+                                    </CardBody>
+                                    <CardFooter>Footer</CardFooter>
+                                </Card>
+                            </Container>
+                        </li>
+                    })
+                }
+            </div >
         );
     }
 
@@ -56,6 +80,7 @@ class Home extends Component {
     }
 
     componentDidUpdate(prevProp) {
+        console.log(this.props, 'he')
         if (prevProp.topic_slug !== this.props.topic_slug)
             this.fetchArticles()
     }

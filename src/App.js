@@ -3,7 +3,7 @@ import { Router } from '@reach/router'
 
 import Home from './Components/Home'
 import NavBar from './Components/NavBar'
-import { Container, Row, Col } from 'reactstrap';
+
 
 
 
@@ -20,7 +20,7 @@ class App extends Component {
         <NavBar />
         <Router>
           <Home path='/' />
-          <Home path='/topic/:topic_slug' />
+          <Home path='/topics/:topic_slug' />
         </Router>
       </>
     );

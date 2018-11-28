@@ -35,22 +35,23 @@ class NavBar extends Component {
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto p-2" navbar>
-                        <NavItem className='links' >
-                            <NavLink tag={RouterNavLink} to="/"> Home</NavLink>
+
+                        <NavItem  >
+                            <NavLink tag={Link} to="/"> Home</NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Topics
                             </DropdownToggle>
-                            <DropdownMenu left>
+                            <DropdownMenu>
                                 <DropdownItem className='links'>
-                                    <NavLink tag={RouterNavLink} className='button' to='/football'> Football </NavLink>
+                                    <NavLink tag={Link} to='/topics/football'> Football </NavLink>
                                 </DropdownItem>
                                 <DropdownItem className='links'>
-                                    <NavLink tag={RouterNavLink} className='button' to='/coding'> Coding </NavLink>
+                                    <NavLink tag={Link} to='/topics/coding'> Coding </NavLink>
                                 </DropdownItem>
                                 <DropdownItem className='links'>
-                                    <NavLink tag={RouterNavLink} className='button' to='/cooking'> Cooking </NavLink>
+                                    <NavLink tag={Link} to='/topics/cooking'> Cooking </NavLink>
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
