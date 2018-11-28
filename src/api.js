@@ -7,3 +7,20 @@ export const getArticles = async (topic) => {
     const { data } = await axios.get(url)
     return data
 }
+
+
+export const getArticle = async (id) => {
+    const { data } = await axios.get(`${BASE_URL}/articles/${id}`)
+    return data
+}
+
+
+export const getComments = async (id) => {
+    const { data } = await axios.get(`${BASE_URL}/articles/${id}/comments`)
+    return data
+}
+
+
+
+
+

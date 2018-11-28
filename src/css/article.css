@@ -1,0 +1,17 @@
+.single-article{
+    align-content: center;
+    /* background-color: red; */
+    justify-content: center;
+    text-align: center;
+    margin: 3%
+}
+
+
+.article-sidebar{
+    /* background-color: red; */
+    top: 0;
+}
+
+
+
+

@@ -1,0 +1,32 @@
+
+
+.annie-g{
+    background-color: grey
+}
+
+
+.app{
+    height: 100vh;
+}
+
+.app-router-wrapper{
+    height: 100%
+}
+
+.container-fluid{
+    /* background-color: purple; */
+    height: 100%
+}
+
+.second-row{
+    height: 100%;
+    overflow-y: scroll
+}
+
+
+.footer{
+    /* background-color: red; */
+    bottom: 0;
+    position: fixed;
+    margin: 0;
+}

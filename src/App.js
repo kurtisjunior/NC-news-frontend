@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Router } from '@reach/router'
 
 import Home from './Components/Home'
-import NavBar from './Components/NavBar'
+
+import Article from './Components/Article'
+
+import './css/homeArticles.css'
 
 
 
@@ -16,13 +19,18 @@ class App extends Component {
   }
   render() {
     return (
-      <>
-        <NavBar />
-        <Router>
+      <div className='app'>
+        <Router className='app-router-wrapper'>
+
+          {/* HOME PAGE */}
           <Home path='/' />
           <Home path='/topics/:topic_slug' />
+          {/* HOME PAGE FINISH  */}
+
+          <Article path='article/:id' />
         </Router>
-      </>
+
+      </div>
     );
   }
 }

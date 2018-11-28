@@ -35,7 +35,6 @@ class NavBar extends Component {
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto p-2" navbar>
-
                         <NavItem  >
                             <NavLink tag={Link} to="/"> Home</NavLink>
                         </NavItem>
