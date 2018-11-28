@@ -20,6 +20,7 @@ import {
 class Article extends Component {
     state = {
         singleArticle: [],
+        body: '',
         loading: true
     }
     render() {
@@ -49,7 +50,7 @@ class Article extends Component {
 
 
 
-                                    <Form>
+                                    <Form >
                                         <FormGroup row>
 
                                             {/* USE THIS FOR CREATE COMMENT */}
@@ -66,7 +67,7 @@ class Article extends Component {
 
                                         <FormGroup row>
                                             <Col sm={10}>
-                                                <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' />
+                                                <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' onChange={this.onChange} />
                                             </Col>
                                         </FormGroup>
                                         <FormGroup >

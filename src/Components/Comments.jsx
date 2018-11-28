@@ -1,36 +1,55 @@
 import React, { Component } from 'react';
 import * as api from '../api.js'
 
+import '../css/comments.css'
+
+/*
+https://www.npmjs.com/package/react-icons
+
+from library 
+https://react-icons.netlify.com/#/icons/io
+
+*/
+
+
 
 import { ListGroup, ListGroupItem, Container, Row, Col } from 'reactstrap'
 
+import { IoIosArrowRoundUp, IoIosArrowRoundDown } from "react-icons/io";
+
 class Comments extends Component {
     state = {
-        comments: []
+        comments: [],
+        loading: true
     }
     render() {
-        const { comments } = this.state
+        const { comments, loading } = this.state
         return (
-            <ListGroup>
-                {comments.map(comment => {
-                    return <div> <ListGroupItem>
-                        <Container>
-                            <Row>
+            loading ? (
+                <p>loading</p>
+            ) : (
+                    <ListGroup>
+                        {comments.map(comment => {
+                            return <div> <ListGroupItem>
+                                <Container>
+                                    <Row>
+                                        <Col xs='2'>
+                                            <IoIosArrowRoundUp />
+                                            <br />
+                                            {comment.votes}
+                                            <br />
+                                            <IoIosArrowRoundDown />
+                                        </Col>
+                                        <Col> {comment.body}</Col>
 
+                                    </Row>
+                                </Container>
+                            </ListGroupItem>
+                            </div>
+                        })}
+                    </ListGroup>
+                )
 
-                                <Col xs='2'>vote</Col>
-                                <Col> {comment.body}</Col>
-
-
-
-
-
-                            </Row>
-                        </Container>
-                    </ListGroupItem>
-                    </div>
-                })}
-            </ListGroup>
         );
     }
 
@@ -42,7 +61,8 @@ class Comments extends Component {
         api.getComments(this.props.articleId)
             .then(comments => {
                 this.setState({
-                    comments
+                    comments,
+                    loading: false
                 })
             })
     }
