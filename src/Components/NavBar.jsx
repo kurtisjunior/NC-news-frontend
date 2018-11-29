@@ -25,7 +25,7 @@ class NavBar extends Component {
         isOpen: false,
         modal: false,
         user: '',
-        login: false
+        login: true
     };
 
     // PER THE REACT STRAP DOCS TO CONTROL COMPONENTS 
@@ -40,8 +40,6 @@ class NavBar extends Component {
         this.setState({
             modal: !this.state.modal
         });
-
-
     }
 
     render() {
@@ -81,36 +79,46 @@ class NavBar extends Component {
 
 
                 {/* LOGIN MODAL BEGINS  */}
+                {!this.state.login ?
+                    <>
+                        <Button onClick={this.toggleModal}>{this.props.buttonLabel} Login</Button>
+                        <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}  >
+                            <Form onSubmit={this.handleSubmit}>
+                                <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                                <ModalBody  >
+                                    <FormGroup >
+                                        <Label>Username</Label>
+                                        <Input type="textarea" placeholder='JessJelly' onChange={this.handleChange} value={this.state.user} />
+                                        <Label>Password</Label>
+                                        <Input type="password" />
+                                    </FormGroup>
+                                </ModalBody>
+                                <ModalFooter >
+                                    <Button color="primary"> Submit</Button>
+                                    <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                                </ModalFooter>
+                            </Form>
+                        </Modal>
+                    </>
+                    : <Button onClick={this.handleClick}>Logout</Button>}
+                {/* // LOGIN MODAL ENDS  */}
 
-
-
-
-                <Button onClick={this.toggleModal}>{this.props.buttonLabel} LOGIN</Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}  >
-                    <Form onSubmit={this.handleSubmit}>
-                        <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-                        <ModalBody  >
-                            <FormGroup >
-                                <Label>Username</Label>
-                                <Input type="textarea" placeholder='JessJelly' onChange={this.handleChange} value={this.state.user} />
-                                <Label>Password</Label>
-                                <Input type="password" />
-                            </FormGroup>
-                        </ModalBody>
-                        <ModalFooter >
-                            <Button color="primary"> Submit</Button>
-                            <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
-                        </ModalFooter>
-                    </Form>
-                </Modal>
             </Navbar >
-            // LOGIN MODAL ENDS 
+
         );
     }
 
     handleChange = (event) => {
         this.setState({
             user: event.target.value
+        })
+    }
+
+    handleClick = () => {
+        //invloke function to clear state in app
+        this.props.logout()
+        this.setState({
+            login: false
         })
     }
 
@@ -122,9 +130,22 @@ class NavBar extends Component {
         api.getUser(this.state.user)
             .then(user => {
                 this.props.login(user)
+                this.setState({
+                    login: true
+                })
             })
     }
 }
 
 export default NavBar;
+
+
+
+
+
+/*To change
+Login has been changed to true with a permanent app state for dev purposes. 
+Change for production and save logged in user to local storage. 
+
+*/
 

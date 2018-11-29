@@ -22,8 +22,15 @@ export const getComments = async (id) => {
 
 
 // WAITING FOR LOG-IN
-export const postComment = async (body, id) => {
-    console.log(body, id, 'here')
+export const postComment = async (body, userId, articleId) => {
+    // console.log(body, articleId, userId, 'here')
+    const newComment = {
+        body: body,
+        created_by: userId
+    }
+
+    const { data } = await axios.post(`${BASE_URL}/articles/${articleId}/comments`, newComment)
+    console.log(data)
 }
 
 

@@ -14,7 +14,6 @@ https://react-icons.netlify.com/#/icons/io
 
 
 import { ListGroup, ListGroupItem, Container, Row, Col } from 'reactstrap'
-
 import { IoIosArrowRoundUp, IoIosArrowRoundDown } from "react-icons/io";
 
 class Comments extends Component {

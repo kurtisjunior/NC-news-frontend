@@ -24,13 +24,13 @@ class Home extends Component {
     }
     render() {
         const { articles, loading } = this.state
-        const { user } = this.props
+        const { user, logout } = this.props
         return (
             loading ? (
                 <p>Loading</p>
             ) : (
                     <>
-                        <NavBar login={this.props.login} user={user} />
+                        <NavBar login={this.props.login} user={user} logout={logout} />
                         <Container fluid >
                             <Row>
                                 <Col className='annie-g'>ANNIE G </Col>
