@@ -23,7 +23,6 @@ class Article extends Component {
         loading: true
     }
     render() {
-        console.log(this.props.user[0]._id)
         const { singleArticle, loading } = this.state
         return (
             loading ? (

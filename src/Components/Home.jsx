@@ -40,7 +40,14 @@ class Home extends Component {
                                 <Col xs='9'>
                                     <ListGroup className='list'>
                                         {articles.map(article => {
-                                            console.log(article, 'here')
+
+                                            article.created_by !== null ?
+                                                console.log(article.created_by)
+                                                :
+                                                console.log('err')
+
+
+
                                             return <ListGroupItem style={{ width: "100%" }} key={article._id}>
 
                                                 <Card >
@@ -49,9 +56,7 @@ class Home extends Component {
                                                         <CardBody>
                                                             <Row>
                                                                 <Col xs='3'>
-
                                                                     <Vote votes={article.votes} id={article._id} section={'articles'} />
-
                                                                 </Col>
                                                                 <Col>
                                                                     <CardTitle tag={Link} to={`article/${article._id}`} >{article.title}</CardTitle>
@@ -65,6 +70,8 @@ class Home extends Component {
                                                             </Row>
                                                         </CardBody>
                                                     </Container>
+
+                                                    <CardFooter>Footer</CardFooter>
                                                 </Card>
                                                 {/* </Container> */}
                                             </ListGroupItem>

@@ -94,7 +94,6 @@ class Comments extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // console.log(this.state.body, this.props.userId, this.props.articleId, 'TEST')
         api.postComment(this.state.body, this.props.userId, this.props.articleId)
             .then(newComment => {
                 this.setState({

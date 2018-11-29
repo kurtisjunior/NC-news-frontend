@@ -23,7 +23,6 @@ export const getComments = async (id) => {
 
 // WAITING FOR LOG-IN
 export const postComment = async (body, userId, articleId) => {
-    // console.log(body, articleId, userId, 'here')
     const newComment = {
         body: body,
         created_by: userId
@@ -45,10 +44,9 @@ export const makeVote = async (id, direction, section) => {
 }
 
 export const postArticle = async (article, id) => {
-    console.log(article)
     article.created_by = id
-    const { data } = await axios.post(`${BASE_URL}/topics/${article}`)
-
+    const { data } = await axios.post(`${BASE_URL}/topics/${article.belongs_to}/articles`, article)
+    return data
 }
 
 
