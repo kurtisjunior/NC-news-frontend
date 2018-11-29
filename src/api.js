@@ -21,6 +21,15 @@ export const getComments = async (id) => {
 }
 
 
+// WAITING FOR LOG-IN
+export const postComment = async (body, id) => {
+    console.log(body, id, 'here')
+}
 
+
+export const getUser = async (user) => {
+    const { data } = await axios.get(`${BASE_URL}/users/${user}`)
+    return data
+}
 
 

@@ -23,7 +23,7 @@ class App extends Component {
         <Router className='app-router-wrapper'>
 
           {/* HOME PAGE */}
-          <Home path='/' />
+          <Home path='/' login={this.login} user={this.state.user} />
           <Home path='/topics/:topic_slug' />
           {/* HOME PAGE FINISH  */}
 
@@ -32,6 +32,12 @@ class App extends Component {
 
       </div>
     );
+  }
+
+  login = (user) => {
+    this.setState({
+      user
+    })
   }
 }
 

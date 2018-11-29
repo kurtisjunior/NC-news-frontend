@@ -50,7 +50,7 @@ class Article extends Component {
 
 
 
-                                    <Form >
+                                    <Form onSubmit={this.handleSubmit} >
                                         <FormGroup row>
 
                                             {/* USE THIS FOR CREATE COMMENT */}
@@ -67,7 +67,7 @@ class Article extends Component {
 
                                         <FormGroup row>
                                             <Col sm={10}>
-                                                <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' onChange={this.onChange} />
+                                                <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' value={this.state.body} onChange={this.handleChange} />
                                             </Col>
                                         </FormGroup>
                                         <FormGroup >
@@ -110,6 +110,52 @@ class Article extends Component {
                 })
             })
     }
+
+    handleChange = (event) => {
+        this.setState({
+            body: event.target.value
+        })
+    }
+
+
+
+    // WAITING FOR LOG-IN
+    handleSubmit = (event) => {
+        event.preventDefault()
+        api.postComment(this.state.body, this.state.singleArticle._id)
+    }
 }
 
 export default Article;
+
+
+
+
+
+{/* <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+    <Form onSubmit={handleSubmit(this.toggle)}>
+        <ModalHeader toggle={this.toggle}>Share</ModalHeader>
+        <ModalBody>
+            <FormGroup row>
+                <CheckBoxInputField data={this.state.measurements} handleFieldChange={this.handleFieldChange} />
+            </FormGroup>
+            <FormGroup row>
+                <Label for="email" xs={2}>Email</Label>
+                <Col xs={10}>
+                    <FormEmail {...email} />
+                </Col>
+            </FormGroup>
+            <FormGroup row>
+                <Label for="message" xs={2}>Message</Label>
+                <Col xs={10}>
+                    <Input type="textarea" name="message" id="message" />
+                </Col>
+            </FormGroup>
+
+        </ModalBody>
+        <ModalFooter>
+            <Button action="submit" color="primary" value={true}>OK</Button>
+            <Button color="secondary" onClick={this.toggle} value={false}>Cancel</Button>
+        </ModalFooter>
+    </Form>
+</Modal> */}

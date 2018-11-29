@@ -24,12 +24,13 @@ class Home extends Component {
     }
     render() {
         const { articles, loading } = this.state
+        const { user } = this.props
         return (
             loading ? (
                 <p>Loading</p>
             ) : (
                     <>
-                        <NavBar />
+                        <NavBar login={this.props.login} user={user} />
                         <Container fluid >
                             <Row>
                                 <Col className='annie-g'>ANNIE G </Col>
@@ -52,7 +53,12 @@ class Home extends Component {
                                         })}
                                     </ListGroup>
                                 </Col>
-                                <Col> SIDEBAR </Col>
+
+                                <Col>
+                                    <Row className='x'>YOUTUBE VIDEO</Row>
+                                    <Row className='x-bottom'> CREATE ARTICLE CARD</Row>
+                                </Col>
+
                             </Row>
                             <Row>
                                 <Col className='footer'>FOOTER</Col>

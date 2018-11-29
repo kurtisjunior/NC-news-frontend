@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router'
+import * as api from '../api'
 
 import '../css/navbar.css'
 
@@ -14,23 +15,39 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    ModalHeader, ModalBody, ModalFooter, Button, Modal, Form, FormGroup, Input, Label
 } from 'reactstrap';
 
 
 class NavBar extends Component {
     state = {
-        isOpen: false
+        isOpen: false,
+        modal: false,
+        user: '',
+        login: false
     };
 
-    toggle() {
+    // PER THE REACT STRAP DOCS TO CONTROL COMPONENTS 
+    toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
+
+    //remeber to use arrow functions to bound 'this'
+    toggleModal = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
+
+
+    }
+
     render() {
+        const { user } = this.props
         return (
-            // navigation bar begins // 
+            // DROP DOWN MENU// 
             <Navbar color="light" light expand="md">
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
@@ -60,13 +77,54 @@ class NavBar extends Component {
                         </UncontrolledDropdown>
                     </Nav>
                 </Collapse>
-                <NavbarBrand className='p-2' href="/">User</NavbarBrand>
-            </Navbar>
-            // navigation bar ends //
+                {/* DROP DOWN MENU ENDS  */}
+
+
+                {/* LOGIN MODAL BEGINS  */}
+
+
+
+
+                <Button onClick={this.toggleModal}>{this.props.buttonLabel} LOGIN</Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}  >
+                    <Form onSubmit={this.handleSubmit}>
+                        <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                        <ModalBody  >
+                            <FormGroup >
+                                <Label>Username</Label>
+                                <Input type="textarea" placeholder='JessJelly' onChange={this.handleChange} value={this.state.user} />
+                                <Label>Password</Label>
+                                <Input type="password" />
+                            </FormGroup>
+                        </ModalBody>
+                        <ModalFooter >
+                            <Button color="primary"> Submit</Button>
+                            <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                        </ModalFooter>
+                    </Form>
+                </Modal>
+            </Navbar >
+            // LOGIN MODAL ENDS 
         );
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            user: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        //close the login window once submitted
+        this.toggleModal()
+
+        api.getUser(this.state.user)
+            .then(user => {
+                this.props.login(user)
+            })
     }
 }
 
 export default NavBar;
 
-{/* <NavLink tag={Link} to="/test" activeClassName="active"> */ }
