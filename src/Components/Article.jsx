@@ -20,10 +20,10 @@ import {
 class Article extends Component {
     state = {
         singleArticle: [],
-        body: '',
         loading: true
     }
     render() {
+        console.log(this.props.user[0]._id)
         const { singleArticle, loading } = this.state
         return (
             loading ? (
@@ -33,11 +33,9 @@ class Article extends Component {
                         <NavBar />
                         <Container className='single-article' >
                             <Row  >
-
                                 <Card style={{ width: "80%" }} className='text-left' >
                                     <CardTitle>{singleArticle.title}</CardTitle>
                                     <CardText> {singleArticle.body} </CardText>
-
                                 </Card>
 
                                 {/* SIDEBAR */}
@@ -47,46 +45,13 @@ class Article extends Component {
                                 <Card style={{ width: "80%" }} className="text-left" >
                                     {/* <CardTitle>Form to post </CardTitle> */}
                                     {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
-
-
-
-                                    <Form onSubmit={this.handleSubmit} >
-                                        <FormGroup row>
-
-                                            {/* USE THIS FOR CREATE COMMENT */}
-
-                                            {/* <Col sm={10}>
-                                                <Input type="select" name="select" id="exampleSelect" >
-                                                    <option disabled> Select</option>
-                                                    <option>Football</option>
-                                                    <option>Coding</option>
-                                                    <option>Cooking</option>
-                                                </Input>
-                                            </Col> */}
-                                        </FormGroup>
-
-                                        <FormGroup row>
-                                            <Col sm={10}>
-                                                <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' value={this.state.body} onChange={this.handleChange} />
-                                            </Col>
-                                        </FormGroup>
-                                        <FormGroup >
-                                            <Col sm={{ size: 0.5, offset: 0 }}>
-                                                <Button>Post</Button>
-                                            </Col>
-                                        </FormGroup>
-                                    </Form>
                                 </Card>
-
                                 <Card style={{ width: "80%" }} className="text-left">
                                     <CardTitle className='text-center'>Comments</CardTitle>
                                     {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
-
                                     {/* COMMENTS COMPONENT  */}
-                                    <Comments articleId={singleArticle._id} />
-
+                                    <Comments userId={this.props.user[0]._id} articleId={this.state.singleArticle._id} />
                                 </Card>
-
                             </Row>
                         </Container>
                     </>
@@ -100,7 +65,6 @@ class Article extends Component {
         this.fetchSingleArticle()
     }
 
-
     fetchSingleArticle = () => {
         api.getArticle(this.props.id)
             .then(singleArticle => {
@@ -111,17 +75,6 @@ class Article extends Component {
             })
     }
 
-    handleChange = (event) => {
-        this.setState({
-            body: event.target.value
-        })
-    }
-
-    // WAITING FOR LOG-IN
-    handleSubmit = (event) => {
-        event.preventDefault()
-        api.postComment(this.state.body, this.props.user[0]._id, this.state.singleArticle._id, )
-    }
 }
 
 export default Article;

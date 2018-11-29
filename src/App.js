@@ -4,6 +4,7 @@ import { Router } from '@reach/router'
 import Home from './Components/Home'
 
 import Article from './Components/Article'
+import CreateArticle from './Components/CreateArticle'
 
 import './css/homeArticles.css'
 
@@ -35,6 +36,7 @@ class App extends Component {
           {/* HOME PAGE FINISH  */}
 
           <Article path='article/:id' user={this.state.user} />
+          <CreateArticle path='createArticle' user={this.state.user} />
         </Router>
 
       </div>
