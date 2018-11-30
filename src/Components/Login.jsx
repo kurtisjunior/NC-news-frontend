@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-    Form, FormGroup, Input, Label, Button, ModalFooter
+    Form, FormGroup, Input, Label, Button
 } from 'reactstrap';
 
 class Login extends Component {

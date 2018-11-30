@@ -8,7 +8,6 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
     NavLink,
@@ -16,7 +15,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    ModalHeader, ModalBody, ModalFooter, Button, Modal, Form, FormGroup, Input, Label
+    ModalHeader, ModalBody, ModalFooter, Button, Modal, Form, FormGroup, Input, Label, Alert
 } from 'reactstrap';
 
 
@@ -25,7 +24,8 @@ class NavBar extends Component {
         isOpen: false,
         modal: false,
         user: '',
-        login: true
+        login: true,
+        username: true
     };
 
     // PER THE REACT STRAP DOCS TO CONTROL COMPONENTS 
@@ -43,7 +43,6 @@ class NavBar extends Component {
     }
 
     render() {
-        const { user } = this.props
         return (
             // DROP DOWN MENU// 
             <Navbar color="light" light expand="md">
@@ -87,6 +86,11 @@ class NavBar extends Component {
                                 <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                                 <ModalBody  >
                                     <FormGroup >
+
+                                        {!this.state.username ? <Alert color="danger">
+                                            Please enter a valid username
+                                            </Alert> : null}
+
                                         <Label>Username</Label>
                                         <Input type="textarea" placeholder='JessJelly' onChange={this.handleChange} value={this.state.user} />
                                         <Label>Password</Label>
@@ -102,7 +106,6 @@ class NavBar extends Component {
                     </>
                     : <Button onClick={this.handleClick}>Logout</Button>}
                 {/* // LOGIN MODAL ENDS  */}
-
             </Navbar >
 
         );
@@ -125,14 +128,30 @@ class NavBar extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         //close the login window once submitted
-        this.toggleModal()
 
         api.getUser(this.state.user)
             .then(user => {
-                this.props.login(user)
-                this.setState({
-                    login: true
-                })
+
+                console.log(user, 'here')
+
+                this.toggleModal()
+
+                if (user) {
+                    this.props.login(user)
+                    this.setState({
+                        login: true,
+                        username: true
+                    })
+                }
+
+            })
+            .catch((err) => {
+                if (err.response.status === 404) {
+                    this.setState({
+                        username: false
+                    })
+                }
+                else (console.log(err))
             })
     }
 }

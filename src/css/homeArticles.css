@@ -1,9 +1,9 @@
-.list{
-    list-style-type: none;
-    margin-left: 0;
-    height: 100px;
+.socialicon {
+  height: 40px;
+  width: 40px;
+  padding-right: 3%;
 }
 
-
-
-
+.article-topic-text {
+  font-weight: bold;
+}

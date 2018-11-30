@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../api'
+import { navigate } from '@reach/router'
 
-import NavBar from '../Components/NavBar'
+
 import Comments from '../Components/Comments'
 
 import '../css/article.css'
@@ -11,8 +12,8 @@ import '../css/article.css'
 
 
 import {
-    Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, ListGroup, ListGroupItem, Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText
+    Card,
+    CardTitle, CardText, Container, Row, Col
 } from 'reactstrap';
 
 
@@ -29,7 +30,6 @@ class Article extends Component {
                 <p>loading</p>
             ) : (
                     <>
-                        <NavBar />
                         <Container className='single-article' >
                             <Row  >
                                 <Card style={{ width: "80%" }} className='text-left' >
@@ -38,7 +38,7 @@ class Article extends Component {
                                 </Card>
 
                                 {/* SIDEBAR */}
-                                <Col className='article-sidebar'> sidebar </Col>
+                                <Col className='article-sidebar'></Col>
                                 {/* SIDEBAR FINISH */}
 
                                 <Card style={{ width: "80%" }} className="text-left" >
@@ -48,8 +48,10 @@ class Article extends Component {
                                 <Card style={{ width: "80%" }} className="text-left">
                                     <CardTitle className='text-center'>Comments</CardTitle>
                                     {/* <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
+
                                     {/* COMMENTS COMPONENT  */}
-                                    <Comments userId={this.props.user[0]._id} articleId={this.state.singleArticle._id} />
+                                    <Comments userId={this.props.user ? this.props.user[0]._id : null} articleId={this.state.singleArticle._id} user={this.props.user} />
+
                                 </Card>
                             </Row>
                         </Container>
@@ -67,16 +69,18 @@ class Article extends Component {
     fetchSingleArticle = () => {
         api.getArticle(this.props.id)
             .then(singleArticle => {
+                console.log(singleArticle, 'here')
                 this.setState({
                     singleArticle,
                     loading: false
                 })
+            })
+            .catch(err => {
+                navigate('/error', { replace: true })
             })
     }
 
 }
 
 export default Article;
-
-
 

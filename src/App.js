@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Router } from '@reach/router'
 
 import Home from './Components/Home'
+import NavBar from './Components/NavBar'
 
 import Article from './Components/Article'
 import CreateArticle from './Components/CreateArticle'
+import Error from './Components/Error'
+
 
 import './css/homeArticles.css'
 
@@ -28,15 +31,19 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Router className='app-router-wrapper'>
+        {/* <NavBar login={this.props.login} user={user} logout={logout} /> */}
+        <NavBar user={this.state.user} login={this.login} logout={this.logout} />
 
+        <Router className='app-router-wrapper'>
           {/* HOME PAGE */}
           <Home path='/' login={this.login} user={this.state.user} logout={this.logout} />
           <Home path='/topics/:topic_slug' />
           {/* HOME PAGE FINISH  */}
-
           <Article path='article/:id' user={this.state.user} />
+          <Article path='topics/:topic_slug/article/:id' />
+
           <CreateArticle path='createArticle' user={this.state.user} />
+          <Error path='/*' />
         </Router>
 
       </div>
@@ -51,7 +58,7 @@ class App extends Component {
 
   logout = () => {
     this.setState({
-      user: []
+      user: null
     })
   }
 }

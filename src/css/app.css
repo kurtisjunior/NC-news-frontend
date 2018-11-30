@@ -1,46 +1,58 @@
-
-
-.annie-g{
-    background-color: grey
+.annie-g {
+  background-color: grey;
 }
 
-
-.app{
-    height: 100vh;
+.app {
+  height: 100vh;
 }
 
-.app-router-wrapper{
-    height: 100%
+.app-router-wrapper {
+  height: 100%;
 }
 
-.container-fluid{
-    /* background-color: purple; */
-    height: 100%
+.container-fluid {
+  /* background-color: purple; */
+  height: 100%;
 }
 
-.second-row{
-    height: 100%;
-    overflow-y: scroll
+.second-row {
+  height: 100%;
+  overflow-y: scroll;
 }
 
-
-.footer{
-    /* background-color: red; */
-    bottom: 0;
-    position: fixed;
-    margin: 0;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-
 
 .x {
-    height: 30%;
-    border: 1px solid black;
-    margin-top: 5%;
-    margin-bottom: 10%
+  height: 30%;
+  border: 1px solid grey;
+  border-radius: 5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 .x-bottom {
-    height: 38%;
-    border: 1px solid black;
+  height: 40%;
+  border-radius: 5%;
+  padding: 1%;
+}
 
+/* removes all styling from the link  */
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  color: black;
+}
+
+.foo {
+  margin: 0%;
+  padding: 0%;
+  background-color: red;
 }

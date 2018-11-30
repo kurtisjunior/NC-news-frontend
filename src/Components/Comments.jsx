@@ -3,6 +3,7 @@ import * as api from '../api.js'
 
 
 import Vote from '../Components/Vote'
+import Delete from '../Components/Delete'
 import '../css/comments.css'
 
 /*
@@ -15,14 +16,16 @@ https://react-icons.netlify.com/#/icons/io
 
 
 
-import { ListGroup, ListGroupItem, Container, Row, Col, Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap'
+import { ListGroup, ListGroupItem, Container, Row, Col, Form, FormGroup, Input, Button, UncontrolledAlert } from 'reactstrap'
 
 
 class Comments extends Component {
     state = {
         comments: [],
         body: '',
-        loading: true
+        loading: true,
+        loggedin: true
+
     }
     render() {
         const { comments, loading } = this.state
@@ -35,6 +38,12 @@ class Comments extends Component {
                             <FormGroup row>
                             </FormGroup>
                             <FormGroup row>
+
+
+                                {!this.state.loggedin ? <UncontrolledAlert onClick={this.handleClick} color="danger">
+                                    Please log in to post
+                                            </UncontrolledAlert> : null}
+
                                 <Col sm={10}>
                                     <Input type="textarea" name="text" id="exampleText" placeholder='What are you thinking ?' value={this.state.body} onChange={this.handleChange} />
                                 </Col>
@@ -52,14 +61,18 @@ class Comments extends Component {
                                 return <div> <ListGroupItem>
                                     <Container>
                                         <Row>
-
-                                            {/* RENDER VOTE COMPONENT IN HERE */}
-
                                             <Col xs='2'>
                                                 <Vote votes={comment.votes} id={comment._id} section={'comments'} />
                                             </Col>
                                             <Col> {comment.body}</Col>
                                         </Row>
+                                        {/* if the user posted the article then they can delete it otherwise no permission */}
+                                        {comment.created_by._id === this.props.userId ?
+                                            <Col>
+                                                <Delete id={comment._id} optimisticDelete={this.optimisticDelete} />
+                                            </Col>
+                                            :
+                                            console.log('err')}
                                     </Container>
                                 </ListGroupItem>
                                 </div>
@@ -101,20 +114,32 @@ class Comments extends Component {
                     body: ''
                 })
             })
+            .catch((err) => {
+                if (err.response.status === 400) {
+                    this.setState({
+                        loggedin: false
+                    })
+                }
+
+            })
 
     }
 
+    optimisticDelete = (id) => {
+        setTimeout(() => {
+            this.setState({
+                comments: this.state.comments.filter(comment => comment._id !== id)
+            })
+        }, 500)
+    }
 
 
-
-
-
-
-
-
-
-
-
+    handleClick = () => {
+        this.setState({
+            loggedin: true
+        })
+    }
 }
 
 export default Comments;
+

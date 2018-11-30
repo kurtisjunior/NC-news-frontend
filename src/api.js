@@ -34,7 +34,8 @@ export const postComment = async (body, userId, articleId) => {
 
 export const getUser = async (user) => {
     const { data } = await axios.get(`${BASE_URL}/users/${user}`)
-    return data
+    return data[0]
+    //data.user
 }
 
 
@@ -47,6 +48,12 @@ export const postArticle = async (article, id) => {
     article.created_by = id
     const { data } = await axios.post(`${BASE_URL}/topics/${article.belongs_to}/articles`, article)
     return data
+}
+
+export const deleteSomething = async (id) => {
+    const { data } = await axios.delete(`${BASE_URL}/comments/${id}`)
+    return data
+
 }
 
 
