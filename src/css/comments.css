@@ -2,3 +2,8 @@
     font-size: 13px;
     text-align: left
 } */
+
+.comment-body {
+  font-size: 90%;
+  text-align: justify;
+}

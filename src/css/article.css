@@ -1,17 +1,33 @@
-.single-article{
-    align-content: center;
-    /* background-color: red; */
-    justify-content: center;
-    text-align: center;
-    margin: 3%
+.single-article {
+  align-content: center;
+  /* background-color: red; */
+  justify-content: center;
+  text-align: center;
+  margin: 3%;
 }
 
-
-.article-sidebar{
-    /* background-color: red; */
-    top: 0;
+.article-sidebar {
+  /* background-color: red; */
+  top: 0;
 }
 
+.singleArticle-topic {
+  font-weight: bold;
+  font-size: 90%;
+}
 
+.article-info {
+  font-size: 90%;
+}
 
+.text-body {
+  text-align: left;
+  margin: 1%;
+  margin-left: 0;
+  text-align: justify;
+  font-size: 90%;
+}
 
+.article-title {
+  margin-left: 5%;
+}
