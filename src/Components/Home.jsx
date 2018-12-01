@@ -112,7 +112,7 @@ class Home extends Component {
               </ListGroup>
             </Col>
             <Col>
-              <Row className="x-bottom">
+              <Row className="sidebar-top">
                 <Card>
                   <CardBody>
                     <CardImg
@@ -124,7 +124,7 @@ class Home extends Component {
                   </CardBody>
                 </Card>
               </Row>
-              <Row className="x-bottom">
+              <Row className="sidebar-bottom">
                 <Card>
                   <CardImg
                     top

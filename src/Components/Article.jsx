@@ -27,7 +27,7 @@ class Article extends Component {
           <Row>
             <Card style={{ width: "80%" }} className="text-left">
               <CardTitle>
-                <Vote votes={singleArticle.votes} />
+                <Vote votes={singleArticle.votes} id={singleArticle._id} section={"articles"} />
                 <span className="article-title">{singleArticle.title}</span>
               </CardTitle>
               <p>
@@ -78,7 +78,6 @@ class Article extends Component {
     api
       .getArticle(this.props.id)
       .then(singleArticle => {
-        console.log(singleArticle, "here");
         this.setState({
           singleArticle,
           loading: false

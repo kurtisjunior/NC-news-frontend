@@ -28,9 +28,7 @@ class CreateArticle extends Component {
                   </Alert>
                 ) : null}
 
-                {this.state.missingField && this.state.loggedin ? (
-                  <Alert color="danger">Missing field</Alert>
-                ) : null}
+                {this.state.missingField ? <Alert color="danger">Missing field</Alert> : null}
 
                 <Label for="exampleSelect">Category</Label>
                 <Input type="select" id="belongs_to" onChange={this.handleChange}>
@@ -66,6 +64,10 @@ class CreateArticle extends Component {
     );
   }
 
+  // componentDidUpdate(PrevProps){
+  //   if(this.props)
+  // }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
@@ -88,6 +90,7 @@ class CreateArticle extends Component {
         });
       } else {
         api.postArticle(this.state, this.props.user._id).then(res => {
+          console.log(res);
           //After navigated set the state back to false to bring back the form
           this.setState({
             missingField: false
