@@ -1,66 +1,61 @@
-import React, { Component } from 'react';
-import { Router } from '@reach/router'
+import React, { Component } from "react";
+import { Router } from "@reach/router";
 
-import Home from './Components/Home'
-import NavBar from './Components/NavBar'
+import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
 
-import Article from './Components/Article'
-import CreateArticle from './Components/CreateArticle'
-import Error from './Components/Error'
+import Article from "./Components/Article";
+import CreateArticle from "./Components/CreateArticle";
+import Error from "./Components/Error";
 
-
-import './css/homeArticles.css'
-
-
-
+import "./css/homeArticles.css";
 
 /*App to hold the logged in user and pass down to other components*/
 
-
 class App extends Component {
   state = {
-    user: [{
+    user: {
       _id: "5bd324bda2eb70f78abd4d9d",
       username: "jessjelly",
       name: "Jess Jelly",
-      avatar_url: "https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg",
+      avatar_url:
+        "https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg",
       __v: 0
-    }]
-  }
+    }
+  };
 
   render() {
     return (
-      <div className='app'>
+      <div className="app">
         {/* <NavBar login={this.props.login} user={user} logout={logout} /> */}
         <NavBar user={this.state.user} login={this.login} logout={this.logout} />
 
-        <Router className='app-router-wrapper'>
+        <Router className="app-router-wrapper">
           {/* HOME PAGE */}
-          <Home path='/' login={this.login} user={this.state.user} logout={this.logout} />
-          <Home path='/topics/:topic_slug' />
+          <Home path="/" login={this.login} user={this.state.user} logout={this.logout} />
+          <Home path="/topics/:topic_slug" />
           {/* HOME PAGE FINISH  */}
-          <Article path='article/:id' user={this.state.user} />
-          <Article path='topics/:topic_slug/article/:id' />
+          <Article path="article/:id" user={this.state.user} />
+          <Article path="topics/:topic_slug/article/:id" />
 
-          <CreateArticle path='createArticle' user={this.state.user} />
-          <Error path='/*' />
+          <CreateArticle path="createArticle" user={this.state.user} />
+          <Error path="/*" />
         </Router>
-
       </div>
     );
   }
 
-  login = (user) => {
+  login = user => {
     this.setState({
       user
-    })
-  }
+    });
+  };
 
   logout = () => {
     this.setState({
       user: null
-    })
-  }
+    });
+  };
 }
 
 export default App;
