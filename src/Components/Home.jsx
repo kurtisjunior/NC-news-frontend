@@ -5,6 +5,8 @@ import * as api from "../api";
 import Vote from "../Components/Vote";
 import { SocialIcon } from "react-social-icons";
 
+import { StickyContainer, Sticky } from "react-sticky";
+
 import moment from "moment";
 import "../css/app.css";
 
@@ -21,15 +23,6 @@ import {
   Col,
   CardImg
 } from "reactstrap";
-
-// const imgStyle = {
-//     minWidth: "50x",
-// };
-
-/*  
-Home page to hold articles in state
-Display: Nav bar, Side bar, Annie
-*/
 
 class Home extends Component {
   state = {
@@ -57,6 +50,7 @@ class Home extends Component {
                               <Col xs="3">
                                 <Vote votes={article.votes} id={article._id} section={"articles"} />
                               </Col>
+
                               <Col>
                                 <CardTitle
                                   className="title"
@@ -111,37 +105,47 @@ class Home extends Component {
                 })}
               </ListGroup>
             </Col>
-            <Col>
-              <Row className="sidebar-top">
-                <Card>
-                  <CardBody>
-                    <CardImg
-                      top
-                      width="100%"
-                      src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                      alt="Card image cap"
-                    />
-                  </CardBody>
-                </Card>
-              </Row>
-              <Row className="sidebar-bottom">
-                <Card>
-                  <CardImg
-                    top
-                    width="100%"
-                    src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                    alt="Card image cap"
-                  />
-                  <CardBody>
-                    <CardText>
-                      Just another day in the dunya right ? Make a post about it here.{" "}
-                    </CardText>
-                    <Button tag={Link} to={"/createArticle"}>
-                      Create Post
-                    </Button>
-                  </CardBody>
-                </Card>
-              </Row>
+
+            <Col className="STICKY SOMETHING MAYBE">
+              <StickyContainer>
+                <Row className="sidebar-top">
+                  <Card>
+                    <CardBody>
+                      <CardImg
+                        top
+                        width="100%"
+                        src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+                        alt="Card image cap"
+                      />
+                    </CardBody>
+                  </Card>
+                </Row>
+
+                <Sticky>
+                  {({ style }) => (
+                    <span style={{ ...style }}>
+                      <Row className="sidebar-bottom">
+                        <Card>
+                          <CardImg
+                            top
+                            width="100%"
+                            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+                            alt="Card image cap"
+                          />
+                          <CardBody>
+                            <CardText>
+                              Just another day in the dunya right ? Make a post about it here.{" "}
+                            </CardText>
+                            <Button tag={Link} to={"/createArticle"}>
+                              Create Post
+                            </Button>
+                          </CardBody>
+                        </Card>
+                      </Row>
+                    </span>
+                  )}
+                </Sticky>
+              </StickyContainer>
             </Col>
           </Row>
           <Row>
