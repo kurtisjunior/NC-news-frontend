@@ -54,7 +54,7 @@ class NavBar extends Component {
   render() {
     return (
       // DROP DOWN MENU//
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" sticky={"top"}>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto p-2" navbar>
@@ -69,19 +69,19 @@ class NavBar extends Component {
                 Topics
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem className="links">
+                <DropdownItem style={{ backgroundColor: "##fff;" }} className="links">
                   <NavLink tag={Link} to="/topics/football">
                     {" "}
                     Football{" "}
                   </NavLink>
                 </DropdownItem>
-                <DropdownItem className="links">
+                <DropdownItem style={{ backgroundColor: "##fff;" }}>
                   <NavLink tag={Link} to="/topics/coding">
                     {" "}
                     Coding{" "}
                   </NavLink>
                 </DropdownItem>
-                <DropdownItem className="links">
+                <DropdownItem style={{ backgroundColor: "##fff;" }}>
                   <NavLink tag={Link} to="/topics/cooking">
                     {" "}
                     Cooking{" "}
@@ -133,8 +133,12 @@ class NavBar extends Component {
             </Modal>
           </>
         ) : (
-          <Button onClick={this.handleClick}>Logout</Button>
+          <>
+            <img src={this.props.user.avatar_url} className="avatar" />
+            <Button onClick={this.handleClick}>Logout</Button>
+          </>
         )}
+
         {/* // LOGIN MODAL ENDS  */}
       </Navbar>
     );

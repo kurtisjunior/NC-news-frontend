@@ -1,40 +1,3 @@
-.annie-g {
-  background-color: grey;
-}
-
-.app {
-  height: 100vh;
-}
-
-.app-router-wrapper {
-  height: 100%;
-}
-
-.container-fluid {
-  /* background-color: purple; */
-  height: 100%;
-}
-
-.second-row {
-  height: 100%;
-  overflow-y: scroll;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.sidebar-top {
-  height: 40%;
-  border-radius: 5%;
-}
-
-.sidebar-bottom {
-  margin-top: 10%;
-}
-
 /* removes all styling from the link  */
 a:hover,
 a:visited,
@@ -45,7 +8,44 @@ a:active {
   box-shadow: none !important;
   color: black;
 }
+.app {
+  height: 100vh;
+}
 
-.foo {
-  height: 5rem;
+.app-router-wrapper {
+  height: 100%;
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+.second-row {
+  overflow-y: scroll;
+  background-color: #dfdce3;
+  height: 100vh;
+}
+
+.sticky {
+  background-color: #dfdce3;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #dfdce3;
+}
+
+.main-body {
+  background-color: #dfdce3;
+}
+
+.article-list {
+  margin-top: 3.5%;
+}
+
+.social-svg {
+  height: 10%;
+  width: 10%;
 }

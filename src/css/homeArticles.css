@@ -1,9 +1,9 @@
-.socialicon {
-  height: 40px;
-  width: 40px;
-  padding-right: 3%;
-}
-
 .article-topic-text {
   font-weight: bold;
+}
+
+.sticky {
+  position: fixed;
+  width: 23.5%;
+  padding-top: 3%;
 }

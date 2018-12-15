@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api.js";
 
-import Vote from "../Components/Vote";
-import Delete from "../Components/Delete";
+import Vote from "../components/Vote";
+import Delete from "../components/Delete";
 import "../css/comments.css";
 
 /*
@@ -61,7 +61,7 @@ class Comments extends Component {
           </FormGroup>
           <FormGroup>
             <Col sm={{ size: 0.5, offset: 0 }}>
-              <Button>Post</Button>
+              <Button>Comment</Button>
             </Col>
           </FormGroup>
         </Form>

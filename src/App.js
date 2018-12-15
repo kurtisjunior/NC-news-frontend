@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 
-import Home from "./Components/Home";
-import NavBar from "./Components/NavBar";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
 
-import Article from "./Components/Article";
-import CreateArticle from "./Components/CreateArticle";
-import Error from "./Components/Error";
+import Article from "./components/Article";
+import CreateArticle from "./components/CreateArticle";
+import Error from "./components/Error";
 
 import "./css/homeArticles.css";
 
@@ -27,9 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {/* <NavBar login={this.props.login} user={user} logout={logout} /> */}
         <NavBar user={this.state.user} login={this.login} logout={this.logout} />
-
         <Router className="app-router-wrapper">
           {/* HOME PAGE */}
           <Home path="/" login={this.login} user={this.state.user} logout={this.logout} />

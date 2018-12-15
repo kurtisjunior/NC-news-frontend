@@ -1,3 +1,21 @@
- .links a:hover a:active a:focus a:visited{
-    text-decoration: none;
+.links {
+  text-decoration: none;
+  background-color: purple;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  color: black;
+}
+
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  margin-right: 1rem;
+  border-radius: 50%;
 }

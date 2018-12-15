@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../api";
 
-import Vote from "../Components/Vote";
+import Vote from "../components/Vote";
 import { SocialIcon } from "react-social-icons";
-
-import { StickyContainer, Sticky } from "react-sticky";
 
 import moment from "moment";
 import "../css/app.css";
+import "../css/sidebar.css";
 
+import pic from "../utils/picture.jpg";
 import {
   Card,
   Button,
@@ -30,6 +30,8 @@ class Home extends Component {
     loading: true
   };
   render() {
+    const linkedIn = "https://www.linkedin.com/in/kurtis-angell-58612171/";
+    const instagram = "https://www.google.co.uk";
     const { articles, loading } = this.state;
     return loading ? (
       <p>Loading</p>
@@ -37,8 +39,8 @@ class Home extends Component {
       <>
         <Container fluid>
           <Row className="second-row">
-            <Col xs="9">
-              <ListGroup>
+            <Col xs="9" className="main-body">
+              <ListGroup className="article-list">
                 {articles.map(article => {
                   return (
                     <ListGroupItem key={article._id}>
@@ -90,68 +92,62 @@ class Home extends Component {
                             </Row>
                           </CardBody>
                         </Container>
-
-                        {/* if the user posted the article then they can delete it otherwise no permission */}
-                        {/* {article.created_by !== null && article.created_by._id === user[0]._id ?
-                                                        <CardFooter>
-                                                            <Delete />
-                                                        </CardFooter>
-                                                        :
-                                                        console.log('err')} */}
                       </Card>
-                      {/* </Container> */}
                     </ListGroupItem>
                   );
                 })}
               </ListGroup>
             </Col>
 
-            <Col className="STICKY SOMETHING MAYBE">
-              <StickyContainer>
-                <Row className="sidebar-top">
-                  <Card>
-                    <CardBody>
-                      <CardImg
-                        top
-                        width="100%"
-                        src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                        alt="Card image cap"
-                      />
-                    </CardBody>
-                  </Card>
-                </Row>
+            <Col className="sidebar-col">
+              <Row>
+                <Card className="sidebar-bottom-card">
+                  <CardBody>
+                    <CardImg top width="100%" src={pic} alt="Card image cap" />
+                  </CardBody>
+                </Card>
+              </Row>
 
-                <Sticky>
-                  {({ style }) => (
-                    <span style={{ ...style }}>
-                      <Row className="sidebar-bottom">
-                        <Card>
-                          <CardImg
-                            top
-                            width="100%"
-                            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                            alt="Card image cap"
-                          />
-                          <CardBody>
-                            <CardText>
-                              Just another day in the dunya right ? Make a post about it here.{" "}
-                            </CardText>
-                            <Button tag={Link} to={"/createArticle"}>
-                              Create Post
-                            </Button>
-                          </CardBody>
-                        </Card>
-                      </Row>
-                    </span>
-                  )}
-                </Sticky>
-              </StickyContainer>
+              <Row>
+                {/* <Sticky topOffset={240}>
+                    {({ style }) => <h1 style={style}>Sticky element</h1>}
+                  </Sticky> */}
+
+                {/* <Sticky topOffset={150}>
+                    {({ style }) => (
+                      <Card style={{ style }}>
+                        <CardImg
+                          top
+                          width="100%"
+                          src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+                          alt="Card image cap"
+                        />
+                        <CardBody>
+                          <CardText>
+                            Just another day in the dunya right ? Make a post about it here.{" "}
+                          </CardText>
+                          <Button tag={Link} to={"/createArticle"}>
+                            Create Post
+                          </Button>
+                        </CardBody>
+                      </Card>
+                    )}
+                  </Sticky> */}
+              </Row>
             </Col>
           </Row>
+
           <Row>
             <Col className="footer">
-              <SocialIcon className="socialicon" network="instagram" />
-              <SocialIcon className="socialicon" network="linkedin" />
+              <a href={linkedIn}>
+                {" "}
+                <SocialIcon network="linkedin" />{" "}
+              </a>
+
+              <a href={instagram}>
+                {" "}
+                <SocialIcon network="instagram" />{" "}
+              </a>
             </Col>
           </Row>
         </Container>
