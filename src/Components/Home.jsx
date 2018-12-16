@@ -12,16 +12,16 @@ import "../css/sidebar.css";
 import pic from "../utils/picture.jpg";
 import {
   Card,
-  Button,
   CardBody,
   CardTitle,
-  CardText,
   ListGroup,
   ListGroupItem,
   Container,
   Row,
   Col,
-  CardImg
+  CardImg,
+  Breadcrumb,
+  BreadcrumbItem
 } from "reactstrap";
 
 class Home extends Component {
@@ -39,6 +39,20 @@ class Home extends Component {
       <>
         <Container fluid>
           <Row className="second-row">
+            <Col xs="6">
+              <Breadcrumb className="sort">
+                <BreadcrumbItem>
+                  <button className="button" onClick={() => this.sortArticles("hot")}>
+                    Hot
+                  </button>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <button className="button" onClick={() => this.sortArticles("new")}>
+                    New
+                  </button>
+                </BreadcrumbItem>
+              </Breadcrumb>
+            </Col>{" "}
             <Col xs="9" className="main-body">
               <ListGroup className="article-list">
                 {articles.map(article => {
@@ -98,7 +112,6 @@ class Home extends Component {
                 })}
               </ListGroup>
             </Col>
-
             <Col className="sidebar-col">
               <Row>
                 <Card className="sidebar-bottom-card">
@@ -169,6 +182,21 @@ class Home extends Component {
         articles,
         loading: false
       });
+    });
+  };
+
+  sortArticles = sort => {
+    let articles;
+    sort === "hot"
+      ? (articles = this.state.articles.sort((a, b) => {
+          return b.votes - a.votes;
+        }))
+      : (articles = this.state.articles.sort((a, b) => {
+          return new Date(b.created_at) - new Date(a.created_at);
+        }));
+
+    this.setState({
+      articles
     });
   };
 }

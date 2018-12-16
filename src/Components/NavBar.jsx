@@ -134,7 +134,10 @@ class NavBar extends Component {
           </>
         ) : (
           <>
-            <img src={this.props.user.avatar_url} className="avatar" />
+            <Link to={`users/${this.props.user.username}`}>
+              {" "}
+              <img src={this.props.user.avatar_url} className="avatar" alt="user-avatar" />{" "}
+            </Link>
             <Button onClick={this.handleClick}>Logout</Button>
           </>
         )}

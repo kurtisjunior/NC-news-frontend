@@ -42,10 +42,26 @@ a:active {
 }
 
 .article-list {
-  margin-top: 3.5%;
+  margin-top: 0%;
 }
 
 .social-svg {
   height: 10%;
   width: 10%;
+}
+
+.sort {
+  margin: 0%;
+  margin-top: 2%;
+  margin-left: 0%;
+  float: left;
+}
+
+.button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.title {
+  justify-content: left;
 }

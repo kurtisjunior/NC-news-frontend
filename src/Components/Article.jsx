@@ -28,7 +28,7 @@ class Article extends Component {
             <Card style={{ width: "80%" }} className="text-left">
               <CardTitle>
                 <Vote votes={singleArticle.votes} id={singleArticle._id} section={"articles"} />
-                <span className="article-title">{singleArticle.title}</span>
+                <span className="title">{singleArticle.title}</span>
               </CardTitle>
               <p>
                 {" "}

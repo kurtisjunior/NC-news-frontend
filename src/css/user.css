@@ -1,0 +1,27 @@
+.user-col {
+  margin-top: 1%;
+}
+
+.article-title {
+  text-align: center;
+  border: 1px solid rgba "(0, 0, 0, 0.5)";
+  background-color: #f8f9fa;
+  border-radius: 5%;
+  margin-top: 5%;
+  margin-right: 4%;
+  padding: 2%;
+}
+
+.all-articles {
+  margin-top: 5%;
+  text-align: left;
+  list-style-type: none;
+}
+
+.user-comments {
+  margin-top: 3%;
+}
+
+.comments {
+  text-align: center;
+}

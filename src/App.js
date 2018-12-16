@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 
 import Article from "./components/Article";
 import CreateArticle from "./components/CreateArticle";
+import User from "./components/User";
 import Error from "./components/Error";
 
 import "./css/homeArticles.css";
@@ -37,6 +38,7 @@ class App extends Component {
           <Article path="topics/:topic_slug/article/:id" />
 
           <CreateArticle path="createArticle" user={this.state.user} />
+          <User path="users/:username" user={this.state.user} />
           <Error path="/*" />
         </Router>
       </div>
