@@ -1,13 +1,20 @@
-.sidebar-col {
-  background-color: #dfdce3;
-}
-
-.sidebar-bottom-card {
-  background-color: #dfdce3;
-  width: 100%;
-  margin-top: 0.1%;
+.bottom-card {
+  margin-top: 3%;
 }
 
 .top-box {
   background-color: red;
+}
+
+.bottom-card-body {
+  background-color: #f8f9fa;
+}
+
+.bottom-card-image {
+  background-color: #f8f9fa;
+}
+
+.bottom-card-create-post {
+  font-size: 80%;
+  text-align: center;
 }

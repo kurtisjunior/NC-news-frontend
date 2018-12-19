@@ -10,6 +10,7 @@ import "../css/app.css";
 import "../css/sidebar.css";
 
 import pic from "../utils/picture.jpg";
+import hunter from "../utils/hunter.jpg";
 import {
   Card,
   CardBody,
@@ -21,7 +22,9 @@ import {
   Col,
   CardImg,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Button,
+  CardText
 } from "reactstrap";
 
 class Home extends Component {
@@ -34,7 +37,7 @@ class Home extends Component {
     const instagram = "https://www.google.co.uk";
     const { articles, loading } = this.state;
     return loading ? (
-      <p>Loading</p>
+      <p />
     ) : (
       <>
         <Container fluid>
@@ -44,6 +47,11 @@ class Home extends Component {
                 <BreadcrumbItem>
                   <button className="button" onClick={() => this.sortArticles("hot")}>
                     Hot
+                  </button>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <button className="button" onClick={() => this.sortArticles("top")}>
+                    Top
                   </button>
                 </BreadcrumbItem>
                 <BreadcrumbItem>
@@ -115,38 +123,27 @@ class Home extends Component {
             <Col className="sidebar-col">
               <Row>
                 <Card className="sidebar-bottom-card">
-                  <CardBody>
+                  <CardBody className="top-card-body">
                     <CardImg top width="100%" src={pic} alt="Card image cap" />
                   </CardBody>
                 </Card>
               </Row>
 
+              {/* bottom card */}
               <Row>
-                {/* <Sticky topOffset={240}>
-                    {({ style }) => <h1 style={style}>Sticky element</h1>}
-                  </Sticky> */}
-
-                {/* <Sticky topOffset={150}>
-                    {({ style }) => (
-                      <Card style={{ style }}>
-                        <CardImg
-                          top
-                          width="100%"
-                          src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
-                          alt="Card image cap"
-                        />
-                        <CardBody>
-                          <CardText>
-                            Just another day in the dunya right ? Make a post about it here.{" "}
-                          </CardText>
-                          <Button tag={Link} to={"/createArticle"}>
-                            Create Post
-                          </Button>
-                        </CardBody>
-                      </Card>
-                    )}
-                  </Sticky> */}
+                <Card className="bottom-card">
+                  <CardImg top width="100%" src={hunter} alt="Card image cap" />
+                  <CardBody className="bottom-card-body">
+                    <CardText className="bottom-card-create-post">
+                      Just another day in the dunya ? Make a post about it here.{" "}
+                    </CardText>
+                    <Button tag={Link} to={"/createArticle"} className="create-post-button">
+                      Create Post
+                    </Button>
+                  </CardBody>
+                </Card>
               </Row>
+              {/* bottom card end */}
             </Col>
           </Row>
 
@@ -189,6 +186,10 @@ class Home extends Component {
     let articles;
     sort === "hot"
       ? (articles = this.state.articles.sort((a, b) => {
+          return b.comment_count - a.comment_count;
+        }))
+      : sort === "top"
+      ? (articles = this.state.articles.sort((a, b) => {
           return b.votes - a.votes;
         }))
       : (articles = this.state.articles.sort((a, b) => {
@@ -202,3 +203,7 @@ class Home extends Component {
 }
 
 export default Home;
+
+//change hot to most comments
+//add top for most votes
+//find a flex setting for the bang and reddit logo

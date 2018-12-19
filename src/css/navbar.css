@@ -16,6 +16,15 @@ a:active {
 .avatar {
   height: 3rem;
   width: 3rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
   border-radius: 50%;
+}
+
+.bang {
+  font-size: 28px;
+  margin-right: 0.5%;
+}
+
+.reddit-image {
+  margin-right: 20%;
 }

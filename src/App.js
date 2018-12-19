@@ -14,16 +14,15 @@ import "./css/homeArticles.css";
 /*App to hold the logged in user and pass down to other components*/
 
 class App extends Component {
-  state = {
-    user: {
-      _id: "5bd324bda2eb70f78abd4d9d",
-      username: "jessjelly",
-      name: "Jess Jelly",
-      avatar_url:
-        "https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg",
-      __v: 0
-    }
-  };
+  state = [];
+  // user: {
+  //   _id: "5bd324bda2eb70f78abd4d9d",
+  //   username: "jessjelly",
+  //   name: "Jess Jelly",
+  //   avatar_url:
+  //     "https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg",
+  //   __v: 0
+  // }
 
   render() {
     return (

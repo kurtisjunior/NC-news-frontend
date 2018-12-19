@@ -4,6 +4,8 @@ import * as api from "../api";
 
 import "../css/navbar.css";
 
+import reddit from "../utils/reddit.png";
+
 import {
   Collapse,
   Navbar,
@@ -33,7 +35,7 @@ class NavBar extends Component {
     isOpen: false,
     modal: false,
     user: "",
-    login: true,
+    login: false,
     username: true
   };
 
@@ -94,6 +96,8 @@ class NavBar extends Component {
           </Nav>
         </Collapse>
         {/* DROP DOWN MENU ENDS  */}
+        <div className="bang"> ! </div>
+        <img src={reddit} className="reddit-image" alt="not reddit news" />
 
         {/* LOGIN MODAL BEGINS  */}
         {!this.state.login ? (
@@ -135,7 +139,6 @@ class NavBar extends Component {
         ) : (
           <>
             <Link to={`users/${this.props.user.username}`}>
-              {" "}
               <img src={this.props.user.avatar_url} className="avatar" alt="user-avatar" />{" "}
             </Link>
             <Button onClick={this.handleClick}>Logout</Button>

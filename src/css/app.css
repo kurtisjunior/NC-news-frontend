@@ -60,8 +60,17 @@ a:active {
 .button {
   background-color: transparent;
   border-color: transparent;
+  cursor: pointer;
 }
 
 .title {
   justify-content: left;
+}
+
+.top-card-body {
+  background-color: #f8f9fa;
+}
+
+.create-post-button {
+  background-color: primary;
 }
