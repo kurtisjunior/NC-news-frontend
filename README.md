@@ -2,7 +2,7 @@
 
 This project uses the data from a backend project: https://kurtisncnews.herokuapp.com/api to create a dynamic front-end user interface  using React. 
 
-For example, https://kurtisncnews.herokuapp.com/api/articles, is the API GET request endpoint for all articles. This same GET request is used to render articles to the homepage of the front end exemplified here: https://kurtisncnews.netlify.com . 
+For example, https://kurtisncnews.herokuapp.com/api/articles, is the API GET request endpoint for all articles. This same GET request is used to render articles to the homepage of the front end exemplified here: https://kurtisncnews.netlify.com
 
 The site loads without the user being logged in. This doesn’t influence the user’s navigation of the app but it does prevent the user from making comments, voting, or posting articles (notified with messages to log-in). Once logged in the user has full access and has access to their unique profile page to view their site activity. However, users may only delete their own articles and can place one vote at any time. 
 
