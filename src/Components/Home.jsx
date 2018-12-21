@@ -203,7 +203,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-//change hot to most comments
-//add top for most votes
-//find a flex setting for the bang and reddit logo
