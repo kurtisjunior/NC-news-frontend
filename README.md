@@ -6,10 +6,10 @@ For example, https://kurtisncnews.herokuapp.com/api/articles, is the API GET req
 
 The site loads without the user being logged in. This doesn’t influence the user’s navigation of the app but it does prevent the user from making comments, voting, or posting articles (notified with messages to log-in). Once logged in the user has full access and has access to their unique profile page to view their site activity. However, users may only delete their own articles and can place one vote at any time. 
 
-##Getting started
+## Getting started
 Clone the project from github and navigate to the file.  Run NPM install to ensure all dependencies have been installed – react, react-dom, react-strap, axios (to make api requests), reachrouter (for component links and navigation) and moments. 
 
-##The site allows users to: 
+## The site allows users to: 
 Browse all articles – with total number of comments and votes 
 Filter articles by comment count, votes and date posted
 Create a new article
