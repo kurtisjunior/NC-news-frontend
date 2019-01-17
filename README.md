@@ -9,7 +9,7 @@ The site loads without the user being logged in. This doesn’t influence the us
 ## Getting started
 Clone the project from github and navigate to the file.  Run NPM install to ensure all dependencies have been installed – react, react-dom, react-strap, axios (to make api requests), reachrouter (for component links and navigation) and moments. 
 
-## The site allows users to: 
+## The site allows users to
 - Browse all articles – with total number of comments and votes 
 - Filter articles by comment count, votes and date posted
 - Create a new article
