@@ -11,7 +11,8 @@ Clone the project from github and navigate to the file.  Run NPM install to ensu
 
 ## The site allows users to
 - Browse all articles – with total number of comments and votes 
-- Filter articles by comment count, votes and date posted
+- Filter articles by topic
+- Order articles by comment count, votes and date posted
 - Create a new article
 - Comment on an existing article
 - View their own profile activity 
