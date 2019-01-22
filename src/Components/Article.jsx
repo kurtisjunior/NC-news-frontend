@@ -3,8 +3,8 @@ import * as api from "../api";
 import { navigate } from "@reach/router";
 import moment from "moment";
 
-import Comments from "../components/Comments";
-import Vote from "../components/Vote";
+import Comments from "../Components/Comments";
+import Vote from "../Components/Vote";
 
 import "../css/article.css";
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api.js";
 
-import Vote from "../components/Vote";
-import Delete from "../components/Delete";
+import Vote from "../Components/Vote";
+import Delete from "../Components/Delete";
 import "../css/comments.css";
 
 /*

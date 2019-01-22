@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 
-import Home from "./components/Home";
-import NavBar from "./components/NavBar";
+import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
 
-import Article from "./components/Article";
-import CreateArticle from "./components/CreateArticle";
-import User from "./components/User";
-import Error from "./components/Error";
+import Article from "./Components/Article";
+import CreateArticle from "./Components/CreateArticle";
+import User from "./Components/User";
+import Error from "./Components/Error";
 
 import "./css/homeArticles.css";
 

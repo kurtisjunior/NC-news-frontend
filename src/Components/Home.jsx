@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../api";
 
-import Vote from "../components/Vote";
+import Vote from "../Components/Vote";
 import { SocialIcon } from "react-social-icons";
 
 import moment from "moment";
