@@ -102,7 +102,7 @@ class NavBar extends Component {
         {/* LOGIN MODAL BEGINS  */}
         {!this.state.login ? (
           <>
-            <Button onClick={this.toggleModal}>{this.props.buttonLabel} Login</Button>
+            <Button onClick={this.toggleModal}>{this.props.buttonLabel} X</Button>
             <Modal
               isOpen={this.state.modal}
               toggle={this.toggleModal}
