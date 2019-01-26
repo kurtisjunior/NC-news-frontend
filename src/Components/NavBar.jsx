@@ -83,14 +83,21 @@ class NavBar extends Component {
                     Coding{" "}
                   </NavLink>
                 </DropdownItem>
+
                 <DropdownItem style={{ backgroundColor: "##fff;" }}>
                   <NavLink tag={Link} to="/topics/cooking">
                     {" "}
                     Cooking{" "}
                   </NavLink>
                 </DropdownItem>
+
                 <DropdownItem divider />
-                <DropdownItem>Easter egg</DropdownItem>
+                <DropdownItem style={{ backgroundColor: "##fff;" }}>
+                  <NavLink tag={Link} to="/easterEgg">
+                    {" "}
+                    Easter Egg{" "}
+                  </NavLink>
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>

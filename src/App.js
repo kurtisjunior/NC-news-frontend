@@ -8,6 +8,7 @@ import Article from "./Components/Article";
 import CreateArticle from "./Components/CreateArticle";
 import User from "./Components/User";
 import Error from "./Components/Error";
+import EasterEgg from "./Components/EasterEgg";
 
 import "./css/homeArticles.css";
 
@@ -38,6 +39,7 @@ class App extends Component {
 
           <CreateArticle path="createArticle" user={this.state.user} />
           <User path="users/:username" user={this.state.user} />
+          <EasterEgg path="/easterEgg" />
           <Error path="/*" />
         </Router>
       </div>

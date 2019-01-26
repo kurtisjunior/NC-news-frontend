@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import * as api from "../api";
 
 import Vote from "../Components/Vote";
-import { SocialIcon } from "react-social-icons";
+import Loading from "../Components/Loading";
 
 import moment from "moment";
 import "../css/app.css";
@@ -33,11 +33,9 @@ class Home extends Component {
     loading: true
   };
   render() {
-    const linkedIn = "https://www.linkedin.com/in/kurtis-angell-58612171/";
-    const instagram = "https://www.google.co.uk";
     const { articles, loading } = this.state;
     return loading ? (
-      <p />
+      <Loading />
     ) : (
       <>
         <Container fluid>
@@ -144,20 +142,6 @@ class Home extends Component {
                 </Card>
               </Row>
               {/* bottom card end */}
-            </Col>
-          </Row>
-
-          <Row>
-            <Col className="footer">
-              <a href={linkedIn}>
-                {" "}
-                <SocialIcon network="linkedin" />{" "}
-              </a>
-
-              <a href={instagram}>
-                {" "}
-                <SocialIcon network="instagram" />{" "}
-              </a>
             </Col>
           </Row>
         </Container>
