@@ -1,6 +1,6 @@
 # NorthCoders News Front-end
 
-This project uses the data from a backend project: https://kurtisncnews.herokuapp.com/api to create a dynamic front-end user interface  using React. 
+This project uses the data from a backend project: https://kurtisncnews.herokuapp.com/api to create a dynamic front-end UX using React. 
 
 For example, https://kurtisncnews.herokuapp.com/api/articles, is the API GET request endpoint for all articles. This same GET request is used to render articles to the homepage of the front end exemplified here: https://kurtisncnews.netlify.com
 
