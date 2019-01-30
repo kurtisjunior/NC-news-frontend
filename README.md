@@ -21,5 +21,5 @@ Clone the project from github and navigate to the file.  Run NPM install to ensu
 
 The project can then be run locally with the command NPM START.
 
-Author: Kurtis Angell – learning Javascript at Northcoders. 
+Author: Kurtis Angell. 
 
